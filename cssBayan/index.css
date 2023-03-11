@@ -1,20 +1,91 @@
 * {
     box-sizing: border-box;
-    width: 100%;
-    margin: auto;
     position: static;
-    text-align: center;
-    font-size: 1.5rem;
+    text-align: start;
+    justify-content: space-between;
+    font-size: 4.5vw;
     font-family: 'Inika', serif;
     font-family: 'Inter', sans-serif;
     font-family: 'Titillium Web', sans-serif;
+    color: rgba(43, 255, 0, 0.635);
+}
+body {
+    margin: auto;
+    max-width: 70vw;
+    font-size: 1.2em;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    padding: 0;
+    margin: 0;
 }
 
-.img-meme {
-    content: url(./assets/img/Programming-Memes-Google-Chrome0.jpg);
-    max-width: 70%;
+.meme0 {
+    content: url(./assets/img/7ct4hc0.png);
+}
+.meme1 {
+    content: url(./assets/img/7ct4hc1.png);
+}
+.meme2 {
+    content: url(./assets/img/7ct4hc2.png);
+}
+.meme3 {
+    content: url(./assets/img/7ct4hc3.png);
 }
 
-.text-meme {
-    color: green;
+#accordion li {
+    list-style: none;
 }
+#accordion li label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#accordion label + input[type='radio'] {
+    display: none;
+}
+
+#accordion .img-meme {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+/* #accordion label + input[type='radio']:checked + .open-close {
+    rotate: 225deg;
+    transition: transform 0.5s;
+} */
+#accordion label + input[type='radio']:checked + .img-meme {
+    max-height: 5em;
+}
+.open-close {
+    display: none;
+}
+/* #accordion input[type='radio']:checked + span::before {
+    transition: transform .35s;
+    transform: rotate(225deg);
+}
+input[type='radio']:checked ~ label .meme-wrap .open-close {
+    transform: rotate(180deg);
+} */
+@media (hover: hover) and (pointer: fine) {
+    #accordion li {
+        cursor: pointer;
+    }
+    .open-close {
+        display: block;
+    }
+    #accordion:hover > label > span { 
+        transform: rotate(225deg);
+        transform: 0.5s;
+    }
+    #accordion label > span ~ input[type='radio']:checked {
+        transform: rotate(225deg);
+        transform: 0.5s;
+    }
+}
+@media (min-width:490) {   .element:hover{ .... } }
