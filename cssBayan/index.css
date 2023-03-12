@@ -3,7 +3,7 @@
     position: static;
     text-align: start;
     justify-content: space-between;
-    font-size: 4.5vw;
+    font-size: 4vw;
     font-family: 'Inika', serif;
     font-family: 'Inter', sans-serif;
     font-family: 'Titillium Web', sans-serif;
@@ -22,7 +22,11 @@ li {
     padding: 0;
     margin: 0;
 }
-
+p {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
 .meme0 {
     content: url(./assets/img/7ct4hc0.png);
 }
@@ -39,13 +43,7 @@ li {
 #accordion li {
     list-style: none;
 }
-#accordion li label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-#accordion label + input[type='radio'] {
+#accordion input[type='radio'] {
     display: none;
 }
 
@@ -55,37 +53,45 @@ li {
     transition: all 0.6s ease;
 }
 
-/* #accordion label + input[type='radio']:checked + .open-close {
-    rotate: 225deg;
-    transition: transform 0.5s;
-} */
-#accordion label + input[type='radio']:checked + .img-meme {
+#accordion input[type='radio']:checked + label .img-meme {
     max-height: 5em;
 }
+
 .open-close {
     display: none;
+    transition: all 0.5s ease;
 }
-/* #accordion input[type='radio']:checked + span::before {
-    transition: transform .35s;
-    transform: rotate(225deg);
-}
-input[type='radio']:checked ~ label .meme-wrap .open-close {
-    transform: rotate(180deg);
-} */
+
+
 @media (hover: hover) and (pointer: fine) {
     #accordion li {
         cursor: pointer;
     }
+    #accordion li label {
+        cursor: pointer;
+    }
     .open-close {
-        display: block;
+        display: inline;
     }
-    #accordion:hover > label > span { 
-        transform: rotate(225deg);
-        transform: 0.5s;
+    #accordion input[type='radio']:checked + label > p > .open-close,
+    #accordion input[type=radio]:hover + label > p > .open-close,
+    #accordion input[type='radio'] + label ~ .img-meme:hover ~ .open-close  { 
+        rotate: 135deg;
+        translate: 0.1rem 0.2rem ;
     }
-    #accordion label > span ~ input[type='radio']:checked {
-        transform: rotate(225deg);
-        transform: 0.5s;
+    ul li label > p > span:hover {
+        rotate: 135deg;
+        translate: 0.1rem 0.2rem ;
     }
+    
+    #accordion input[type='radio'] + label .img-meme:hover,
+    #accordion input[type='radio']:hover + label .img-meme {
+        max-height: 5em;
+    }
+    #accordion input[type=radio]:hover + label > p > .open-close {
+        rotate: 135deg;
+        translate: 0.1rem 0.2rem ; 
+    }
+
 }
 @media (min-width:490) {   .element:hover{ .... } }
